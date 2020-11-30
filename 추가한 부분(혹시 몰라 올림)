@@ -1,0 +1,12 @@
+ Bitmap bitmap;
+    byte[] byteArray;
+    ByteArrayOutputStream stream;  ////추가
+    
+    ////"Intent intent= 과 startActivity(intent) 사이에 (각 case 마다)
+    
+    stream = new ByteArrayOutputStream();
+    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+    byteArray = stream.toByteArray();
+
+    intent.putExtra("img",byteArray); 
+           
