@@ -1,6 +1,5 @@
 package com.example.myapplication;
 
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import android.app.Activity;
@@ -8,15 +7,10 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.view.Display;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 
@@ -36,7 +30,7 @@ public class ImageActivity extends Activity implements OnClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image);
 
-        mPhotoImageView = (ImageView) findViewById(R.id.image);
+        mPhotoImageView = (ImageView) findViewById(R.id.receivedimage);
 
         Button btn1 = (Button) findViewById(R.id.button);
         btn1.setOnClickListener(this); //사진불러오는 버튼
@@ -47,8 +41,6 @@ public class ImageActivity extends Activity implements OnClickListener {
 
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
-                //startActivity(intent);
                 Intent img=new Intent(ImageActivity.this, MainActivity2.class);
                 stream = new ByteArrayOutputStream();
                 photo.compress(Bitmap.CompressFormat.JPEG, 100, stream);
@@ -70,6 +62,7 @@ public class ImageActivity extends Activity implements OnClickListener {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
         startActivityForResult(intent, PICK_FROM_ALBUM);
+        finish();
     }
 
     @Override
@@ -124,8 +117,6 @@ public class ImageActivity extends Activity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-
-
         if (v.getId() == R.id.button) { //사진불러오기 버튼
             new AlertDialog.Builder(this).setTitle("이미지 선택")
                     .setNeutralButton("앨범열기", albumListener)
