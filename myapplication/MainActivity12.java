@@ -1,8 +1,9 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 import android.view.View;
@@ -10,7 +11,13 @@ import android.widget.ImageView;
 
 import android.content.Intent;
 
+import java.io.ByteArrayOutputStream;
+
 public class MainActivity12 extends AppCompatActivity {
+
+    Bitmap bitmap;
+    byte[] byteArray;
+    ByteArrayOutputStream stream;  //추가
 
     TextView tv = null;
     TextView tv1 = null;
@@ -33,12 +40,21 @@ public class MainActivity12 extends AppCompatActivity {
     ImageView Change_image2 = null;
     ImageView Change_image3 = null;
 
+    ImageView ImageView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main12);
         setup();
+
+        ImageView=findViewById(R.id.receivedimage); //사진 넣을 View
+
+        byteArray = getIntent().getByteArrayExtra("img"); //img라는 이름으로 받아옴
+        bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+
+        ImageView.setImageBitmap(bitmap); //사진 받는 부분 추가
 
     }
 
