@@ -1,10 +1,9 @@
 package com.example.myapplication;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
 import android.widget.Button;
 import android.widget.TextView;
 import android.view.View;
@@ -15,7 +14,6 @@ import android.content.Intent;
 import java.io.ByteArrayOutputStream;
 
 public class MainActivity3 extends AppCompatActivity {
-
 
     Bitmap bitmap;
     byte[] byteArray;
@@ -52,7 +50,6 @@ public class MainActivity3 extends AppCompatActivity {
         bitmap = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
 
         ImageView.setImageBitmap(bitmap); //사진 받는 부분 추가
-
     }
 
     private void setup()
@@ -67,7 +64,6 @@ public class MainActivity3 extends AppCompatActivity {
         tv2 = (TextView) findViewById(R.id.tv2);
 
         Change_image = (ImageView)findViewById(R.id.imageView3);
-
         Change_image2 = (ImageView)findViewById(R.id.imageView2);
 
         btn.setOnClickListener(listener);
@@ -170,8 +166,7 @@ public class MainActivity3 extends AppCompatActivity {
                     break;
 
                 case R.id.leftchoice :
-                    Intent intent = new Intent(MainActivity3.this, MainActivity.class);
-
+                    Intent intent = new Intent(MainActivity3.this, MainActivity5.class);
                     stream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                     byteArray = stream.toByteArray();
@@ -182,14 +177,13 @@ public class MainActivity3 extends AppCompatActivity {
                     break;
 
                 case R.id.rightchoice :
-                    Intent intent2 = new Intent(MainActivity3.this, MainActivity2.class);
-
+                    Intent intent2 = new Intent(MainActivity3.this, MainActivity7.class);
                     stream = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                     byteArray = stream.toByteArray();
 
                     intent2.putExtra("img",byteArray);
-                    startActivity(intent2); //이미지 전달 부분 추가
+                    startActivity(intent2);
                     finish();
                     break;
             }
