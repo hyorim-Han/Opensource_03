@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity2">
 
+
     <Button
         android:id="@+id/leftbtn"
         android:layout_width="80dp"
@@ -71,17 +72,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="150dp"
         android:layout_height="130dp"
         android:layout_marginTop="96dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintHorizontal_bias="0.187"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pink_autumn_001" />
-
 
     <ImageView
         android:id="@+id/imageView2"
@@ -89,20 +90,21 @@
         android:layout_height="130dp"
         android:layout_marginTop="96dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
+        app:layout_constraintHorizontal_bias="0.823"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/pink_winter_001" />
 
     <ImageView
         android:id="@+id/receivedimage"
-        android:layout_width="277dp"
-        android:layout_height="255dp"
-        android:layout_marginTop="124dp"
+        android:layout_width="205dp"
+        android:layout_height="86dp"
+        android:src="@drawable/green_autumn015_"
+        app:layout_constraintBottom_toTopOf="@id/tv2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.403" />
 
     <TextView
         android:id="@+id/textView2"
