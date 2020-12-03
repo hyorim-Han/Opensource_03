@@ -17,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
 
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ImageActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }
+                                      public void onClick(View view) {
+                                          Intent intent = new Intent(MainActivity.this, ImageActivity.class);
+                                          startActivity(intent);
+                                          finish();
+                                      }
+                                  }
         );
     }
 }
