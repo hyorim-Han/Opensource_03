@@ -41,16 +41,16 @@ public class ImageActivity extends Activity implements OnClickListener {
 
             @Override
             public void onClick(View view) {
-                Intent img=new Intent(ImageActivity.this, MainActivity2.class);
+                Intent intent=new Intent(ImageActivity.this, MainActivity2.class);
                 stream = new ByteArrayOutputStream();
                 photo.compress(Bitmap.CompressFormat.JPEG, 100, stream);
                 byteArray = stream.toByteArray();
 
-
-                img.putExtra("img",byteArray);
-                startActivity(img);
+                intent.putExtra("img",byteArray);
+                startActivity(intent);
             }
-        }); //next버튼누르면 다음 화면
+        }
+        ); //next버튼누르면 다음 화면
 
     }
 
@@ -62,7 +62,6 @@ public class ImageActivity extends Activity implements OnClickListener {
         Intent intent = new Intent(Intent.ACTION_PICK);
         intent.setType(android.provider.MediaStore.Images.Media.CONTENT_TYPE);
         startActivityForResult(intent, PICK_FROM_ALBUM);
-        finish();
     }
 
     @Override
@@ -113,7 +112,6 @@ public class ImageActivity extends Activity implements OnClickListener {
             }
         }
     }
-
 
     @Override
     public void onClick(View v) {
